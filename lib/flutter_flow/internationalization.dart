@@ -700,14 +700,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': 'Arrivée',
       'nl': 'Aankomst',
     },
-    'dn4gambs': {
-      'en': '5',
-      'ar': '5',
-      'de': '5',
-      'es': '5',
-      'fr': '5',
-      'nl': '5',
-    },
     'erqkopsr': {
       'en': 'My posts',
       'ar': 'مشاركاتي',

@@ -1,12 +1,11 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/edit_drievr_post_button_sheet/edit_drievr_post_button_sheet_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -89,7 +88,13 @@ class _MyDriverPostsPageWidgetState extends State<MyDriverPostsPageWidget> {
               body: SafeArea(
                 top: true,
                 child: StreamBuilder<List<DriversPostsRecord>>(
-                  stream: queryDriversPostsRecord(),
+                  stream: queryDriversPostsRecord(
+                    queryBuilder: (driversPostsRecord) =>
+                        driversPostsRecord.where(
+                      'posted_by_ref',
+                      isEqualTo: currentUserReference,
+                    ),
+                  ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
                     if (!snapshot.hasData) {
@@ -194,6 +199,64 @@ class _MyDriverPostsPageWidgetState extends State<MyDriverPostsPageWidget> {
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(1.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 6.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          EditDrievrPostButtonSheetWidget(
+                                                        editPost:
+                                                            listViewDriversPostsRecord
+                                                                .reference,
+                                                        deletePost:
+                                                            listViewDriversPostsRecord
+                                                                .reference,
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: Icon(
+                                              Icons.keyboard_control_sharp,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
                                       Align(
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
@@ -479,38 +542,6 @@ class _MyDriverPostsPageWidgetState extends State<MyDriverPostsPageWidget> {
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          -1.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsets.all(10.0),
-                                                    child: Container(
-                                                      width: 60.0,
-                                                      height: 60.0,
-                                                      clipBehavior:
-                                                          Clip.antiAlias,
-                                                      decoration: BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: CachedNetworkImage(
-                                                        fadeInDuration:
-                                                            Duration(
-                                                                milliseconds:
-                                                                    500),
-                                                        fadeOutDuration:
-                                                            Duration(
-                                                                milliseconds:
-                                                                    500),
-                                                        imageUrl:
-                                                            containerUsersRecord!
-                                                                .photoUrl,
-                                                        fit: BoxFit.cover,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
                                                 Flexible(
                                                   child: Align(
                                                     alignment:
@@ -531,91 +562,11 @@ class _MyDriverPostsPageWidgetState extends State<MyDriverPostsPageWidget> {
                                                             MainAxisAlignment
                                                                 .center,
                                                         children: [
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    -1.0, 0.0),
-                                                            child: Text(
-                                                              valueOrDefault<
-                                                                  String>(
-                                                                containerUsersRecord
-                                                                    ?.displayName,
-                                                                'No_name',
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Plus Jakarta Sans',
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
-                                                            ),
-                                                          ),
                                                           Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
                                                                     .max,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child:
-                                                                    RatingBarIndicator(
-                                                                  itemBuilder:
-                                                                      (context,
-                                                                              index) =>
-                                                                          Icon(
-                                                                    Icons
-                                                                        .star_rounded,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .tertiary,
-                                                                  ),
-                                                                  direction: Axis
-                                                                      .horizontal,
-                                                                  rating: 5.0,
-                                                                  unratedColor:
-                                                                      FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .accent3,
-                                                                  itemCount: 5,
-                                                                  itemSize:
-                                                                      16.0,
-                                                                ),
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  FFLocalizations.of(
-                                                                          context)
-                                                                      .getText(
-                                                                    'dn4gambs' /* 5 */,
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Plus Jakarta Sans',
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            ],
+                                                            children: [],
                                                           ),
                                                         ],
                                                       ),
@@ -629,66 +580,7 @@ class _MyDriverPostsPageWidgetState extends State<MyDriverPostsPageWidget> {
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
-                                                    children: [
-                                                      InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          await showModalBottomSheet(
-                                                            isScrollControlled:
-                                                                true,
-                                                            backgroundColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            enableDrag: false,
-                                                            context: context,
-                                                            builder: (context) {
-                                                              return GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      EditDrievrPostButtonSheetWidget(
-                                                                    editPost:
-                                                                        listViewDriversPostsRecord
-                                                                            .reference,
-                                                                    deletePost:
-                                                                        listViewDriversPostsRecord
-                                                                            .reference,
-                                                                  ),
-                                                                ),
-                                                              );
-                                                            },
-                                                          ).then((value) =>
-                                                              safeSetState(
-                                                                  () {}));
-                                                        },
-                                                        child: Icon(
-                                                          Icons.more_vert,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          size: 24.0,
-                                                        ),
-                                                      ),
-                                                    ],
+                                                    children: [],
                                                   ),
                                                 ),
                                               ],

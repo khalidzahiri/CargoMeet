@@ -1824,10 +1824,6 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget>
                                                           ).then((value) =>
                                                               safeSetState(
                                                                   () {}));
-
-                                                          context.goNamedAuth(
-                                                              'Splash',
-                                                              context.mounted);
                                                         },
                                                         text:
                                                             FFLocalizations.of(

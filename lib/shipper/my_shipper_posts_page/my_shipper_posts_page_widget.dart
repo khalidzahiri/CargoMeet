@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/edit_shipper_post_button_sheet/edit_shipper_post_button_sheet_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -87,7 +88,13 @@ class _MyShipperPostsPageWidgetState extends State<MyShipperPostsPageWidget> {
               body: SafeArea(
                 top: true,
                 child: StreamBuilder<List<ClientPostsRecord>>(
-                  stream: queryClientPostsRecord(),
+                  stream: queryClientPostsRecord(
+                    queryBuilder: (clientPostsRecord) =>
+                        clientPostsRecord.where(
+                      'posted_by_ref',
+                      isEqualTo: currentUserReference,
+                    ),
+                  ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
                     if (!snapshot.hasData) {
@@ -199,53 +206,61 @@ class _MyShipperPostsPageWidgetState extends State<MyShipperPostsPageWidget> {
                                         Align(
                                           alignment:
                                               AlignmentDirectional(1.0, 0.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              await showModalBottomSheet(
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                enableDrag: false,
-                                                context: context,
-                                                builder: (context) {
-                                                  return GestureDetector(
-                                                    onTap: () => _model
-                                                            .unfocusNode
-                                                            .canRequestFocus
-                                                        ? FocusScope.of(context)
-                                                            .requestFocus(_model
-                                                                .unfocusNode)
-                                                        : FocusScope.of(context)
-                                                            .unfocus(),
-                                                    child: Padding(
-                                                      padding: MediaQuery
-                                                          .viewInsetsOf(
-                                                              context),
-                                                      child:
-                                                          EditShipperPostButtonSheetWidget(
-                                                        editPost:
-                                                            listViewClientPostsRecord
-                                                                .reference,
-                                                        deletePost:
-                                                            listViewClientPostsRecord
-                                                                .reference,
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 6.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            EditShipperPostButtonSheetWidget(
+                                                          editPost:
+                                                              listViewClientPostsRecord
+                                                                  .reference,
+                                                          deletePost:
+                                                              listViewClientPostsRecord
+                                                                  .reference,
+                                                        ),
                                                       ),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then((value) =>
-                                                  safeSetState(() {}));
-                                            },
-                                            child: Icon(
-                                              Icons.more_vert,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              size: 24.0,
+                                                    );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
+                                              },
+                                              child: Icon(
+                                                Icons.keyboard_control_sharp,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                size: 24.0,
+                                              ),
                                             ),
                                           ),
                                         ),
