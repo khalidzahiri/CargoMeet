@@ -1,0 +1,40 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "drivers_posts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "departure_city",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "destination_city",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "departure_time",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_time",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "chat_messages",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "chat_user",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timestamp",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ]
+}

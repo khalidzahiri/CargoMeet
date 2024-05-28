@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "118020253923",
+    "project_id": "cargomeet-191ca",
+    "storage_bucket": "cargomeet-191ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118020253923:android:c9608057a88d9fbc61bdd6",
+        "android_client_info": {
+          "package_name": "com.mycompany.cargoMeet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118020253923-6m8rarfb6lvumk51sd2eeotonecf8mj0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.cargoMeet",
+            "certificate_hash": "d2376e1da8d85d72013973b09e2648cae452ac69"
+          }
+        },
+        {
+          "client_id": "118020253923-corr77oa1ojcage9iflotk8b44tsiski.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.cargoMeet",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "118020253923-q3grug177m1e1sgd13mbf1vn0j8liv1v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyai7DXr8nMj8wzUKL6L98AwnjiGVMI_4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118020253923-q3grug177m1e1sgd13mbf1vn0j8liv1v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "118020253923-ckn42quk6dat39178ljepg7jadpfc9qo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.cargoMeet"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
