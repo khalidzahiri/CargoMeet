@@ -422,27 +422,23 @@ class _EditShipperPostPageWidgetState extends State<EditShipperPostPageWidget> {
                                                             if (FFAppState()
                                                                     .vehicleType !=
                                                                 'tautliner') {
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .vehicleType =
-                                                                    'tautliner';
-                                                              });
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .tautliner =
-                                                                    true;
-                                                              });
+                                                              FFAppState()
+                                                                      .vehicleType =
+                                                                  'tautliner';
+                                                              setState(() {});
+                                                              FFAppState()
+                                                                      .tautliner =
+                                                                  true;
+                                                              setState(() {});
                                                               return;
                                                             } else {
-                                                              setState(() {
-                                                                FFAppState()
-                                                                    .vehicleType = '';
-                                                              });
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .tautliner =
-                                                                    false;
-                                                              });
+                                                              FFAppState()
+                                                                  .vehicleType = '';
+                                                              setState(() {});
+                                                              FFAppState()
+                                                                      .tautliner =
+                                                                  false;
+                                                              setState(() {});
                                                               return;
                                                             }
                                                           },
@@ -532,27 +528,23 @@ class _EditShipperPostPageWidgetState extends State<EditShipperPostPageWidget> {
                                                           if (FFAppState()
                                                                   .vehicleType !=
                                                               'frigorifique') {
-                                                            setState(() {
-                                                              FFAppState()
-                                                                      .vehicleType =
-                                                                  'frigorifique';
-                                                            });
-                                                            setState(() {
-                                                              FFAppState()
-                                                                      .frigorifique =
-                                                                  true;
-                                                            });
+                                                            FFAppState()
+                                                                    .vehicleType =
+                                                                'frigorifique';
+                                                            setState(() {});
+                                                            FFAppState()
+                                                                    .frigorifique =
+                                                                true;
+                                                            setState(() {});
                                                             return;
                                                           } else {
-                                                            setState(() {
-                                                              FFAppState()
-                                                                  .vehicleType = '';
-                                                            });
-                                                            setState(() {
-                                                              FFAppState()
-                                                                      .frigorifique =
-                                                                  false;
-                                                            });
+                                                            FFAppState()
+                                                                .vehicleType = '';
+                                                            setState(() {});
+                                                            FFAppState()
+                                                                    .frigorifique =
+                                                                false;
+                                                            setState(() {});
                                                             return;
                                                           }
                                                         },
@@ -644,25 +636,21 @@ class _EditShipperPostPageWidgetState extends State<EditShipperPostPageWidget> {
                                                         if (FFAppState()
                                                                 .vehicleType !=
                                                             'bache') {
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .vehicleType =
-                                                                'bache';
-                                                          });
-                                                          setState(() {
-                                                            FFAppState().bache =
-                                                                true;
-                                                          });
+                                                          FFAppState()
+                                                                  .vehicleType =
+                                                              'bache';
+                                                          setState(() {});
+                                                          FFAppState().bache =
+                                                              true;
+                                                          setState(() {});
                                                           return;
                                                         } else {
-                                                          setState(() {
-                                                            FFAppState()
-                                                                .vehicleType = '';
-                                                          });
-                                                          setState(() {
-                                                            FFAppState().bache =
-                                                                false;
-                                                          });
+                                                          FFAppState()
+                                                              .vehicleType = '';
+                                                          setState(() {});
+                                                          FFAppState().bache =
+                                                              false;
+                                                          setState(() {});
                                                           return;
                                                         }
                                                       },
@@ -752,27 +740,22 @@ class _EditShipperPostPageWidgetState extends State<EditShipperPostPageWidget> {
                                                         if (FFAppState()
                                                                 .vehicleType !=
                                                             'plateau') {
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .vehicleType =
-                                                                'plateau';
-                                                          });
-                                                          setState(() {
-                                                            FFAppState()
-                                                                .plateau = true;
-                                                          });
+                                                          FFAppState()
+                                                                  .vehicleType =
+                                                              'plateau';
+                                                          setState(() {});
+                                                          FFAppState().plateau =
+                                                              true;
+                                                          setState(() {});
                                                           return;
                                                         } else {
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .vehicleType =
-                                                                'unknown';
-                                                          });
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .plateau =
-                                                                false;
-                                                          });
+                                                          FFAppState()
+                                                                  .vehicleType =
+                                                              'unknown';
+                                                          setState(() {});
+                                                          FFAppState().plateau =
+                                                              false;
+                                                          setState(() {});
                                                           return;
                                                         }
                                                       },
@@ -862,28 +845,22 @@ class _EditShipperPostPageWidgetState extends State<EditShipperPostPageWidget> {
                                                         if (FFAppState()
                                                                 .vehicleType !=
                                                             'potchare') {
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .vehicleType =
-                                                                'potchare';
-                                                          });
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .potchare =
-                                                                true;
-                                                          });
+                                                          FFAppState()
+                                                                  .vehicleType =
+                                                              'potchare';
+                                                          setState(() {});
+                                                          FFAppState()
+                                                              .potchare = true;
+                                                          setState(() {});
                                                           return;
                                                         } else {
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .vehicleType =
-                                                                'unknown';
-                                                          });
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .potchare =
-                                                                false;
-                                                          });
+                                                          FFAppState()
+                                                                  .vehicleType =
+                                                              'unknown';
+                                                          setState(() {});
+                                                          FFAppState()
+                                                              .potchare = false;
+                                                          setState(() {});
                                                           return;
                                                         }
                                                       },
@@ -973,27 +950,22 @@ class _EditShipperPostPageWidgetState extends State<EditShipperPostPageWidget> {
                                                         if (FFAppState()
                                                                 .vehicleType !=
                                                             'porteur') {
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .vehicleType =
-                                                                'porteur';
-                                                          });
-                                                          setState(() {
-                                                            FFAppState()
-                                                                .porteur = true;
-                                                          });
+                                                          FFAppState()
+                                                                  .vehicleType =
+                                                              'porteur';
+                                                          setState(() {});
+                                                          FFAppState().porteur =
+                                                              true;
+                                                          setState(() {});
                                                           return;
                                                         } else {
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .vehicleType =
-                                                                'unknown';
-                                                          });
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .porteur =
-                                                                false;
-                                                          });
+                                                          FFAppState()
+                                                                  .vehicleType =
+                                                              'unknown';
+                                                          setState(() {});
+                                                          FFAppState().porteur =
+                                                              false;
+                                                          setState(() {});
                                                           return;
                                                         }
                                                       },
